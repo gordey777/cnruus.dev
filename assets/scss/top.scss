@@ -1,0 +1,103 @@
+@charset 'utf-8';
+/* leftsead */
+#leftsead {
+  position: fixed;
+  z-index: 100;
+  top: 200px;
+  right: 0;
+
+  width: 161px;
+  height: 290px;
+  li {
+    width: 161px;
+    height: 60px;
+    img {
+      float: right;
+    }
+    a {
+      display: block;
+      float: right;
+
+      min-width: 47px;
+      max-width: 161px;
+      height: 49px;
+      &:hover {
+        text-decoration: none;
+      }
+      .shows {
+        display: block;
+      }
+      .hides {
+        margin-right: -143px;
+
+        cursor: pointer;
+        cursor: hand;
+      }
+    }
+    a.youhui {
+      .hides {
+        position: absolute;
+        right: 143px;
+
+        display: none;
+      }
+      .2wm {
+        position: absolute;
+        right: 143px;
+
+        display: none;
+      }
+    }
+  }
+}
+*html {
+  #leftsead {
+    position: absolute;
+    top: expression(eval(document.documentElement.scrollTop));
+
+    margin-top: 258px;
+  }
+}
+#p2 {
+  line-height: 47px;
+
+  width: 112px;
+  height: 47px;
+  margin-left: 47px;
+
+  text-align: center;
+
+  border: 1px solid #8bc48d;
+  background-color: #a7d2a9;
+}
+#p3 {
+  line-height: 47px;
+
+  width: 112px;
+  height: 47px;
+  margin-left: 47px;
+
+  text-align: center;
+
+  border: 1px solid #e6776c;
+  background-color: #ec9890;
+  background-color: #bc3f61;
+}
+#p4 {
+  line-height: 47px;
+
+  width: 112px;
+  height: 47px;
+  margin-left: 47px;
+
+  text-align: center;
+
+  border: 1px solid #e6776c;
+  background-color: #ec9890;
+}
+#p1 {
+  float: left;
+
+  width: 47px;
+  height: 49px;
+}
