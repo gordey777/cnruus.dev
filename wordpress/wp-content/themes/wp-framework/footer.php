@@ -1,22 +1,26 @@
     </div><!-- /.inner -->
-  </section><!-- /section -->
+
 
 </div><!-- /wrapper -->
 
 <footer role="contentinfo">
   <div class="inner">
 
-    <p class="copyright">
-      &copy; <?php echo date("Y"); ?> Собственность <?php bloginfo('name'); ?>.
-    </p><!-- /copyright -->
+
 
   </div><!-- /.inner -->
   <div class="foot mt10 ">
       <div class="font2 area">
         <p>Адрес :410151，Чанша, Ваньцзяливэй 35,офис 311. &nbsp;&nbsp;&nbsp;&nbsp;Тел. +86 731 84028467&nbsp;&nbsp;&nbsp;&nbsp;РКБЦ：Российско-китайский бизнес-центр</p>
         <p class="text-r">Сайт создан в:<a target="_blank" href="#">inemd.net</a></p>
+
+        <p class="copyright">
+          &copy; <?php echo date("Y"); ?> Собственность <?php bloginfo('name'); ?>.
+        </p><!-- /copyright -->
       </div>
     </div>
+
+
     <div id="leftsead">
       <ul>
         <li>
@@ -91,6 +95,8 @@
 
 
 
+</footer><!-- /footer -->
+
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.kinMaxShow-1.0.min.js" type="text/javascript"></script>
@@ -139,23 +145,23 @@
     $(document).ready(function() {
       $("#leftsead a").hover(function() {
         if ($(this).prop("className") == "youhui") {
-          $(this).children("<?php echo get_template_directory_uri(); ?>/img.hides").show();
+          $(this).children("img.hides").show();
         } else {
           $(this).children("div.hides").show();
-          $(this).children("<?php echo get_template_directory_uri(); ?>/img.shows").hide();
+          $(this).children("img.shows").hide();
           $(this).children("div.hides").animate({
             marginRight: '0px'
           }, '0');
         }
       }, function() {
         if ($(this).prop("className") == "youhui") {
-          $(this).children("<?php echo get_template_directory_uri(); ?>/img.hides").hide();
+          $(this).children("img.hides").hide();
         } else {
           $(this).children("div.hides").animate({
             marginRight: '-163px'
           }, 0, function() {
             $(this).hide();
-            $(this).next("<?php echo get_template_directory_uri(); ?>/img.shows").show();
+            $(this).next("img.shows").show();
           });
         }
       });
@@ -174,8 +180,6 @@
       });
     });
     </script>
-</footer><!-- /footer -->
-
     <?php wp_footer(); ?>
   </form>
 </body>

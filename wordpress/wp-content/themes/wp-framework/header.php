@@ -31,16 +31,7 @@
   <header role="banner">
     <div class="inner">
 
-      <div class="logo">
-        <?php if ( is_front_page() && is_home() ){ } else { ?>
-          <a href="<?php echo home_url(); ?>">
-            <?php  } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-            <?php if ( is_front_page() && is_home() ){
-            } else { ?>
-          </a>
-        <?php } ?>
-      </div><!-- /logo -->
+
 
     </div><!-- /.inner -->
 
@@ -109,5 +100,6 @@
       </div>
   </header><!-- /header -->
 
-  <section role="main">
-    <div class="inner">
+      <div class="clear"></div>
+    </div>
+    <div class="content">
