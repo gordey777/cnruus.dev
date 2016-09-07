@@ -30,19 +30,6 @@
 
 <div class="wrapper">
   <header role="banner">
-    <div class="inner">
-
-
-
-    </div><!-- /.inner -->
-
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "#">
-<!-- saved from url=(0040)http://www.cnruss.com/Russian/index.aspx -->
-<html xmlns="#">
-
-
-  <form name="aspnetForm" method="post" action="#" id="aspnetForm">
-
     <div class="head">
       <div class="top">
         <div class="area">
@@ -68,17 +55,21 @@
       <div class="clear"></div>
     </div>
   </header><!-- /header -->
+
+
   <div class="content">
+
       <div class="search">
-        <div class="ss1 fl">
-          <input class="k2 lf" value="поиск по сайту:" onfocus="this.value=&#39;&#39;;" type="text" id="ShearText">
-          <a href="javascript:;" onclick="ShearcKey()">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/soso.gif" border="0"></a>
-        </div>
+
+        <?php get_search_form(); ?>
         <div class="ss2 fr">
           <a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/sun.jpg" width="113" height="41" border="0"></a>
+
+
         </div>
       </div>
+
+
       <div class="clear"></div>
       <!-- main slider -->
       <div id="kinMaxShow" class="mb10">

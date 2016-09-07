@@ -4,9 +4,9 @@
       <div class="clear mt10"></div>
 
       <div class="left">
-        <div class="fenleis mb10 ">
+
           <?php get_sidebar(); ?>
-        </div>
+
       </div>
 
       <div class="right">
