@@ -1,15 +1,20 @@
 <?php /* Template Name: Content Page Template */ get_header(); ?>
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
+      <div class="clear mt10"></div>
 
-
+      <div class="left">
+        <div class="fenleis mb10 ">
+          <?php get_sidebar(); ?>
+        </div>
+      </div>
 
       <div class="right">
         <div class="tuijian border">
           <div class="tjbt ">
             <span class="fl">
             <?php the_title(); ?>
-              QQQQ
+
             </span>
           </div>
           <div class="jianj">
@@ -33,10 +38,5 @@
 
     </article>
   <?php endif; ?>
-      <div class="left">
-        <div class="fenleis mb10 ">
-          <?php get_sidebar(); ?>
-        </div>
-             <div class="clear mt10"></div>
-      </div>
+
 <?php get_footer(); ?>

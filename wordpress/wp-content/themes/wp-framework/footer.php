@@ -1,4 +1,4 @@
-    </div><!-- /.inner -->
+    </div><!-- /.content -->
 
 
 </div><!-- /wrapper -->
@@ -133,6 +133,8 @@
     <script type="text/javascript">
       $('#hotpic').liteNav(1000);
     </script>-->
+
+
     <script type="text/javascript">
     function ShearcKey() {
       var ShearText = $.trim($("#ShearText").val());
@@ -180,7 +182,8 @@
       });
     });
     </script>
+
     <?php wp_footer(); ?>
-  </form>
+
 </body>
 </html>

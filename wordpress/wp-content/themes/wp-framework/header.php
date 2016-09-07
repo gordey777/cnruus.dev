@@ -27,6 +27,7 @@
 </head>
 <body <?php body_class(); ?>>
 <!-- wrapper -->
+
 <div class="wrapper">
   <header role="banner">
     <div class="inner">
@@ -66,7 +67,8 @@
       </div>
       <div class="clear"></div>
     </div>
-    <div class="content">
+  </header><!-- /header -->
+  <div class="content">
       <div class="search">
         <div class="ss1 fl">
           <input class="k2 lf" value="поиск по сайту:" onfocus="this.value=&#39;&#39;;" type="text" id="ShearText">
@@ -98,8 +100,7 @@
         </div>
 
       </div>
-  </header><!-- /header -->
+
 
       <div class="clear"></div>
-    </div>
-    <div class="content">
+
