@@ -329,12 +329,16 @@ a {
 
         background-color: #b3a917;
       }
-    }
-    a.cur {
-      text-decoration: none;
 
-      background-color: #b3a917;
     }
+
+  }
+  li.current-menu-item {
+          a {
+        text-decoration: none;
+
+        background-color: #b3a917;
+      }
   }
   .nones {
     background: none;

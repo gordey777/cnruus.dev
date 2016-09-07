@@ -105,11 +105,7 @@
         $("#kinMaxShow").kinMaxShow();
       });
     </script>
-    <script type="text/javascript">
-      $(function() {
-        $("#AreaNav li:eq(0) a").addClass("cur");
-      });
-    </script>
+
     <script>
       var speed = 50
       demo2.innerHTML = demo1.innerHTML
