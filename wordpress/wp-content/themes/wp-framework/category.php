@@ -1,10 +1,42 @@
 <?php get_header(); ?>
-  <article>
 
-    <h1 class="cat-title inner-title"><?php _e( 'Categories for', 'wpeasy' ); the_category(', '); ?></h1>
+
+ <div class="clear mt10"></div>
+
+      <div class="left">
+          <?php get_sidebar(); ?>
+
+      </div>
+
+
+
+
+      <div class="right">
+        <div class="tuijian border">
+          <div class="tjbt ">
+            <span class="fl">
+            <?php
+foreach((get_the_category()) as $category) {
+ echo $category->cat_name . ' ';
+} ?>
+
+
+            </span>
+          </div>
+          <div class="jianj">
+            <div class="clear mt20"></div>
+            <div class="j_con">
     <?php get_template_part('loop'); ?>
     <?php get_template_part('pagination'); ?>
 
-  </article>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

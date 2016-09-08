@@ -22,6 +22,7 @@
             <div class="j_con">
               <?php the_content(); ?>
               <?php edit_post_link(); ?>
+
             </div>
           </div>
         </div>
@@ -29,14 +30,18 @@
 
 
   <?php endwhile; else: // If 404 page error ?>
-    <article>
+    <div class="right">
+            <div class="tuijian border">
+      <article>
 
-      <h2 class="page-title inner-title">
-      <?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?>
+        <h2 class="page-title inner-title">
+        <?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?>
 
-      </h2>
+        </h2>
 
-    </article>
+      </article>
+    </div>
+    </div>
   <?php endif; ?>
 
 <?php get_footer(); ?>
