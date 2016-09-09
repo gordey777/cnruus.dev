@@ -90,6 +90,7 @@ if (function_exists('add_theme_support')) {
   load_theme_textdomain('wpeasy', get_template_directory() . '/languages');
 }
 
+
 // WPE head navigation
 function wpeHeadNav() {
   wp_nav_menu(
@@ -656,8 +657,47 @@ function disable_emojicons_tinymce( $plugins ) {
 
 
 
+/*// WPE page nav
+function wpPageSideNav() {
+  wp_list_pages(
+
+$args = array(
+  'depth'        => 1,
+  'show_date'    => '',
+  'date_format'  => get_option('date_format'),
+  'child_of'     => 0,
+  'exclude'      => '35',
+  'exclude_tree' => '',
+  'include'      => '',
+  'title_li'     => __(''),
+  'echo'         => 1,
+  'authors'      => '',
+  'sort_column'  => 'menu_order, post_title',
+  'sort_order'   => 'ASC',
+  'link_before'  => '',
+  'link_after'   => '',
+  'meta_key'     => '',
+  'meta_value'   => '',
+  'number'       => '',
+  'offset'       => '',
+  'walker'       => '',
+  'post_type'    => 'page', // из функции get_pages()
+  )
+);
+}*/
 
 
-
+function wpb_list_child_pages() {
+global $post;
+if ( is_page() && $post->post_parent )
+  $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+else
+  $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+if ( $childpages ) {
+  $string = '<ul class="uls2">' . $childpages . '</ul>';
+}
+return $string;
+}
+add_shortcode('wpb_childpages', 'wpb_list_child_pages');
 
 ?>
