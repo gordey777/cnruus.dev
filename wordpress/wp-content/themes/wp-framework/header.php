@@ -72,23 +72,22 @@
 
       <div class="clear"></div>
       <!-- main slider -->
+
+
       <div id="kinMaxShow" class="mb10">
-        <div>
-          <a href="#" target="_blank">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/201606281429579921.jpg" width="1020" height="270"></a>
-        </div>
-        <div>
-          <a href="#" target="_blank">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/201606281428282006.jpg" width="1020" height="270"></a>
-        </div>
-        <div>
-          <a href="#" target="_blank">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/20160628142249964.jpg" width="1020" height="270"></a>
-        </div>
-        <div>
-          <a href="#" target="_blank">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/201606281345452842.jpg" width="1020" height="270"></a>
-        </div>
+        <?php if( have_rows('slider', 35) ): ?>
+          <?php while ( have_rows('slider', 35) ) : the_row(); ?>
+            <div>
+              <a href="<?php the_sub_field('link'); ?>" target="_blank">
+              <?php $image = get_sub_field('image');
+                if( !empty($image) ): ?>
+                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="1020" height="270">
+                <?php endif; ?>
+                </a>
+            </div>
+          <?php  endwhile;
+          else : ?>
+        <?php endif; ?>
 
       </div>
 

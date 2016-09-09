@@ -15,10 +15,10 @@
         <div class="tuijian border">
           <div class="tjbt ">
             <span class="fl">
-            <?php
-foreach((get_the_category()) as $category) {
- echo $category->cat_name . ' ';
-} ?>
+              <?php
+                foreach((get_the_category()) as $category) {
+                  echo $category->cat_name . ' ';
+              } ?>
 
 
             </span>
