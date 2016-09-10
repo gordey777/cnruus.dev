@@ -46,7 +46,13 @@
                           while ($my_query->have_posts()) {
                               $my_query->the_post();
                           ?>
-                              <li><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
+                              <li>
+                                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+
+                                  <?php the_title(); ?>
+
+                                </a>
+                              </li>
                           <?php
                           }
 
@@ -92,13 +98,20 @@
 
           <div class="tjbt ">
             <span class="fl">
-            <?php the_title(); ?>
+            <?php
+            foreach((get_the_category()) as $category) {
+             echo $category->cat_name . ' ';
+            } ?>
 
             </span>
           </div>
           <div class="jianj">
+          <div class="clear mt20"></div>
+                <div class="jj_tit j_tit"><?php the_title(); ?></div>
+                <div class="sj"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></div>
             <div class="clear mt20"></div>
             <div class="j_con">
+
 
               <?php if ( has_post_thumbnail()) :?>
                 <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -108,13 +121,31 @@
 
 
               <?php the_content(); ?>
+            </div>
+            <div>
               <?php edit_post_link(); ?>
+<?php
+// След./Пред. Пост.
+$post_nav = get_the_post_navigation( array(
+  'next_text' => '<span class="meta-nav" aria-hidden="true">></span> ' .
+    '<span class="screen-reader-text"> Далее </span> ' .
+    '<span class="post-title">%title</span>',
+  'prev_text' => '<span class="meta-nav fl pgs" aria-hidden="true"><</span> ' .
+    '<span class="screen-reader-text"> Назад </span> ' .
+    '<span class="post-title">%title</span>',
+) );
+
+echo $post_nav;
+?>
+
+
 
             </div>
+
+
           </div>
 
 
-      <span class="date"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></span>
       <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
       <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
 

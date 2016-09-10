@@ -700,4 +700,12 @@ return $string;
 }
 add_shortcode('wpb_childpages', 'wpb_list_child_pages');
 
+
+
+
+
+
+
 ?>
+
+

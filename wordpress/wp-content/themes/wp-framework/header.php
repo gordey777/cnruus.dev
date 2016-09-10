@@ -18,12 +18,13 @@
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/respond.js"></script>
   <![endif]-->
   <!-- css + javascript -->
-  <?php wp_head(); ?>
+
   <link href="<?php echo get_template_directory_uri(); ?>/css/reset.css" rel="stylesheet" type="text/css">
   <link href="<?php echo get_template_directory_uri(); ?>/css/Common.css" rel="stylesheet" type="text/css">
   <link href="<?php echo get_template_directory_uri(); ?>/css/Style.css" rel="stylesheet" type="text/css">
   <link href="<?php echo get_template_directory_uri(); ?>/css/Index.css" rel="stylesheet" type="text/css">
   <link href="<?php echo get_template_directory_uri(); ?>/css/top.css" rel="stylesheet" type="text/css">
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <!-- wrapper -->

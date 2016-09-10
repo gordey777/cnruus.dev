@@ -98,8 +98,11 @@
 </footer><!-- /footer -->
 
 
-    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.kinMaxShow-1.0.min.js" type="text/javascript"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js" type="text/javascript">
+
+    </script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.kinMaxShow-1.0.min.js" type="text/javascript">
+    </script>
     <script type="text/javascript">
       $(function() {
         $("#kinMaxShow").kinMaxShow();
@@ -125,11 +128,16 @@
         MyMar = setInterval(Marquee, speed)
       }
     </script>
-<!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.litenav.js" type="text/javascript"></script>
+<!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.litenav.js" type="text/javascript">
+</script>
     <script type="text/javascript">
       $('#hotpic').liteNav(1000);
     </script>-->
-
+  <script type="text/javascript">
+  $(function() {
+    $("#AreaNav li:eq(9) a").addClass("cur");
+  });
+  </script>
 
     <script type="text/javascript">
     function ShearcKey() {

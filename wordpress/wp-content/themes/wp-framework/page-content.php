@@ -64,34 +64,36 @@
       <div class="right">
 
         <div class="tuijian border">
-        <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-          <div class="tjbt ">
-            <span class="fl">
-            <?php the_title(); ?>
+            <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-            </span>
-          </div>
-          <div class="jianj">
-            <div class="clear mt20"></div>
-            <div class="j_con">
-              <?php the_content(); ?>
-              <?php edit_post_link(); ?>
+              <div class="tjbt ">
+              <span class="fl">
+              <?php the_title(); ?>
 
-            </div>
-          </div>
-  <?php endwhile; else: // If 404 page error ?>
+              </span>
+              </div>
+              <div class="jianj">
+                <div class="clear mt20"></div>
+                <div class="j_con">
+                  <?php the_content(); ?>
+                  <?php edit_post_link(); ?>
 
-      <article>
+                </div>
+              </div>
 
-        <h2 class="page-title inner-title">
-        <?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?>
+            <?php endwhile; else: // If 404 page error ?>
 
-        </h2>
+              <article>
 
-      </article>
+                <h2 class="page-title inner-title">
+                  <?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?>
 
-  <?php endif; ?>
+                </h2>
+
+              </article>
+
+            <?php endif; ?>
 
         </div>
 
