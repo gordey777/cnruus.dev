@@ -9,9 +9,8 @@
 add_action('admin_enqueue_scripts', 'wpeAdminThemeStyle');
 function wpeAdminThemeStyle() {
   wp_enqueue_style('wpe-admin-style', get_template_directory_uri() . '/css/admin.css');
+  wp_enqueue_style('wpe-admin-script', get_template_directory_uri() . '/js/admin.js');
   wp_enqueue_style('wpe-admin-style', get_template_directory_uri() . '/css/editor-style.css');
-  wp_register_script('wpe-admin-script', get_template_directory_uri() . '/js/admin.js');
-  wp_enqueue_script( 'wpe-admin-script' );
 }
 
 //  Catch first image from post and display it
@@ -90,6 +89,7 @@ if (function_exists('add_theme_support')) {
   // Localisation Support
   load_theme_textdomain('wpeasy', get_template_directory() . '/languages');
 }
+
 
 // WPE head navigation
 function wpeHeadNav() {
@@ -373,6 +373,7 @@ remove_action('wp_head', 'parent_post_rel_link', 10, 0); // Prev link
 remove_action('wp_head', 'start_post_rel_link', 10, 0); // Start link
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0); // Display relational links for the posts adjacent to the current post.
 remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
@@ -654,6 +655,38 @@ function disable_emojicons_tinymce( $plugins ) {
 }
 
 
+
+
+/*// WPE page nav
+function wpPageSideNav() {
+  wp_list_pages(
+
+$args = array(
+  'depth'        => 1,
+  'show_date'    => '',
+  'date_format'  => get_option('date_format'),
+  'child_of'     => 0,
+  'exclude'      => '35',
+  'exclude_tree' => '',
+  'include'      => '',
+  'title_li'     => __(''),
+  'echo'         => 1,
+  'authors'      => '',
+  'sort_column'  => 'menu_order, post_title',
+  'sort_order'   => 'ASC',
+  'link_before'  => '',
+  'link_after'   => '',
+  'meta_key'     => '',
+  'meta_value'   => '',
+  'number'       => '',
+  'offset'       => '',
+  'walker'       => '',
+  'post_type'    => 'page', // из функции get_pages()
+  )
+);
+}*/
+
+
 function wpb_list_child_pages() {
 global $post;
 if ( is_page() && $post->post_parent )
@@ -680,5 +713,6 @@ function trim_title_chars($count, $after) {
 
 
 
-
 ?>
+
+
