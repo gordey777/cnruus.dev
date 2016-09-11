@@ -702,6 +702,13 @@ add_shortcode('wpb_childpages', 'wpb_list_child_pages');
 
 
 
+function trim_title_chars($count, $after) {
+  $title = get_the_title();
+  if (mb_strlen($title) > $count) $title = mb_substr($title,0,$count);
+  else $after = '';
+  echo $title . $after;
+}
+
 
 
 

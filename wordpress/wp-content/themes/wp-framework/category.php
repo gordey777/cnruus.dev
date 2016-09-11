@@ -102,14 +102,16 @@
 
             </span>
           </div>
-          <div class="jianj">
-            <div class="clear mt20"></div>
-            <div class="j_con">
-    <?php get_template_part('loop'); ?>
-    <?php get_template_part('pagination'); ?>
 
+            <div class="news_con">
+              <?php get_template_part('loop'); ?>
             </div>
-          </div>
+            <div class="clear"></div>
+            <div class="page">
+               <?php get_template_part('pagination'); ?>
+            </div>
+
+
         </div>
 
 
