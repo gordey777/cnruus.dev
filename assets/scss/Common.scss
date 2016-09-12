@@ -345,8 +345,8 @@ a {
   }
 }
 .search {
-  overflow: hidden;
-  overflow: hidden;
+/*   overflow: hidden; // scroll bug
+overflow: hidden; */
 
   width: 100%;
   height: 42px;

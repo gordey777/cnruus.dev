@@ -109,25 +109,25 @@
       });
     </script>
 
-    <script>
-      var speed = 50
-      demo2.innerHTML = demo1.innerHTML
+<!--     <script>
+  var speed = 50
+  demo2.innerHTML = demo1.innerHTML
 
-      function Marquee() {
-        if (demo2.offsetTop - demo.scrollTop <= 0)
-          demo.scrollTop -= demo1.offsetHeight
-        else {
-          demo.scrollTop++
-        }
-      }
-      var MyMar = setInterval(Marquee, speed)
-      demo.onmouseover = function() {
-        clearInterval(MyMar)
-      }
-      demo.onmouseout = function() {
-        MyMar = setInterval(Marquee, speed)
-      }
-    </script>
+  function Marquee() {
+    if (demo2.offsetTop - demo.scrollTop <= 0)
+      demo.scrollTop -= demo1.offsetHeight
+    else {
+      demo.scrollTop++
+    }
+  }
+  var MyMar = setInterval(Marquee, speed)
+  demo.onmouseover = function() {
+    clearInterval(MyMar)
+  }
+  demo.onmouseout = function() {
+    MyMar = setInterval(Marquee, speed)
+  }
+</script> -->
 <!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.litenav.js" type="text/javascript">
 </script>
     <script type="text/javascript">

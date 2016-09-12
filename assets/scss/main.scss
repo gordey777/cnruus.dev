@@ -37,3 +37,32 @@ ul.uls2 {
     }
   }
 }
+
+ul.mainPageList {
+  li {
+    padding-left: 10px;
+    &:before {
+      font-size: 18px;
+
+      padding-right: 8px;
+
+      content: '·';
+
+      color: black;
+    }
+    &:after {
+      font-size: 12px;
+
+      position: absolute;
+
+
+
+      content: '>>';
+
+      color: black;
+    }
+    ul {
+      display: none;
+    }
+  }
+}

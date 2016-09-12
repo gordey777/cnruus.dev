@@ -655,17 +655,52 @@ function disable_emojicons_tinymce( $plugins ) {
 
 
 function wpb_list_child_pages() {
-global $post;
-if ( is_page() && $post->post_parent )
-  $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
-else
-  $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
-if ( $childpages ) {
-  $string = '<ul class="uls2">' . $childpages . '</ul>';
+    global $post;
+    $parent = "";
+    if ( is_page() && $post->post_parent ) {
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+        $parent =  get_the_title($post->post_parent);
+    } else {
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+
+        $parent = $post->post_title;
+    }
+    if ( $childpages ) {
+
+      //$string = '<h3>' . $parent . '</h3>';
+        //$string = '<ul class="sideList"><li>' . $parent ;
+        $string .= '<ul class="uls2">' . $childpages . '</ul>';
+        //$string .= '</li></ul>';
+    }
+
+    return $string;
 }
-return $string;
+add_shortcode( 'wpb_childpages', 'wpb_list_child_pages' );
+
+
+
+function wpb_main_list_child_pages() {
+    global $post;
+    $parent = "";
+    if ( is_page() && $post->post_parent ) {
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+        $parent =  get_the_title($post->post_parent);
+    } else {
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+
+        $parent = $post->post_title;
+    }
+    if ( $childpages ) {
+
+      //$string = '<h3>' . $parent . '</h3>';
+        //$string = '<ul class="sideList"><li>' . $parent ;
+        $string .= '<ul class="mainPageList">' . $childpages . '</ul>';
+        //$string .= '</li></ul>';
+    }
+
+    return $string;
 }
-add_shortcode('wpb_childpages', 'wpb_list_child_pages');
+add_shortcode( 'wpb_childpages', 'wpb_list_child_pages' );
 
 
 

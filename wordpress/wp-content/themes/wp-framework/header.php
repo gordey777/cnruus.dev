@@ -38,12 +38,12 @@
             <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
           </h1>
           <div class="lang fr fw">
-            <a href="#">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/cn.png">
-            </a>
-            <a href="#">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/ru.png">
-            </a>
+<!--             <a href="#">
+  <img src="<?php echo get_template_directory_uri(); ?>/img/cn.png">
+</a>
+<a href="#">
+  <img src="<?php echo get_template_directory_uri(); ?>/img/ru.png">
+</a> -->
           </div>
         </div>
         <div class="clear"></div>

@@ -112,7 +112,6 @@
 
         </div>
 
-      </div>
 
 
             <?php endwhile; else: // If 404 page error ?>

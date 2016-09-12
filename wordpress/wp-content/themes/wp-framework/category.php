@@ -8,7 +8,9 @@
           <div class="nr">
 
             <h3><?php the_category('', 'multiple'); ?></h3>
-          <?php $category = get_the_category();
+
+
+              <?php $category = get_the_category();
               if (is_category()) {
                   $this_category = get_category($cat);
                   if($this_category->category_parent) {
@@ -26,9 +28,12 @@
                       $this_category = wp_list_categories('orderby=name&show_count=0&current_category='.$category[0]->cat_ID.'&title_li=&use_desc_for_title=0&child_of='.$category[0]->cat_ID."&echo=0");
                   }
               } ?>
+
+
             <ul class="uls2">
               <?php echo $this_category; ?>
             </ul>
+
 
           </div>
         </div>
@@ -64,5 +69,5 @@
 
 
 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>
