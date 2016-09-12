@@ -16,8 +16,8 @@ $query = $query = new WP_Query( 'page_id=71' );
 
       while ( $query->have_posts() ) {
   $query->the_post();
+wpeExcerpt('wpeExcerpt40');
 
-  the_excerpt();
 } ?>
 <?php wp_reset_query();
 ?>
@@ -119,25 +119,33 @@ $query = $query = new WP_Query( 'page_id=71' );
 <div class="fenl fr">
   <h3>Каталоги</h3>
     <?php
-$query = $query = new WP_Query( 'page_id=81' );
+    $query = $query = new WP_Query( 'page_id=81' );
 
-      while ( $query->have_posts() ) {
-  $query->the_post();?>
+          while ( $query->have_posts() ) {
+      $query->the_post();?>
 
-            <?php echo(wpb_main_list_child_pages()); ?>
-<?php } ?>
-<?php wp_reset_query();
-?>
+                <?php echo(wpb_main_list_child_pages()); ?>
+    <?php } ?>
+    <?php wp_reset_query();
+    ?>
 
 </div>
 <div class="clear"></div>
 <div class="ad">
-  <a href="" target="_blank" title="左1">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/20160824193333970.jpg" /></a>
-  <a href="" target="_blank" title="左2">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/201608241934132524.jpg" /></a>
-  <a href="/Russian/FreeRelease.aspx" target="_blank" title="左3">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/201606281410313894.jpg" /></a>
+        <?php if( have_rows('first_image_line') ): ?>
+          <?php while ( have_rows('first_image_line') ) : the_row(); ?>
+      <div class="front-page-line">
+              <a class="front-page-line" href="<?php the_sub_field('link'); ?>" target="_blank">
+              <?php $image = get_sub_field('image');
+                if( !empty($image) ): ?>
+                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                <?php endif; ?>
+                </a>
+      </div>
+          <?php  endwhile;
+          else : ?>
+        <?php endif; ?>
+
 </div>
 <div class="clear mb10"></div>
 <div class="wrap fl">
@@ -199,12 +207,19 @@ $query = $query = new WP_Query( 'page_id=81' );
 </div>
 <div class="clear"></div>
 <div class="ad">
-  <a href="" target="_blank" title="4">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/201608241939186318.jpg" /></a>
-  <a href="" target="_blank" title="5">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/201608241934568265.jpg" /></a>
-  <a href="http://qxw1193240140.my3w.com/EnterpriseDetail.aspx?nid=319" target="_blank" title="6">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/20160824193509351.jpg" /></a>
+          <?php if( have_rows('second_image_line') ): ?>
+          <?php while ( have_rows('second_image_line') ) : the_row(); ?>
+  <div class="front-page-line">
+              <a class="front-page-line" href="<?php the_sub_field('link'); ?>" target="_blank">
+              <?php $image = get_sub_field('image');
+                if( !empty($image) ): ?>
+                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" >
+                <?php endif; ?>
+                </a>
+  </div>
+          <?php  endwhile;
+          else : ?>
+        <?php endif; ?>
 </div>
 <div class="clear mb10"></div>
 <div class="wrap fl">
