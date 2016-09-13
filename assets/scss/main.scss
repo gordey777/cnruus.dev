@@ -77,6 +77,9 @@ ul.dot-before {
 
       color: black;
     }
+    ul {
+      display: none;
+    }
   }
 }
 
@@ -95,6 +98,43 @@ ul.dot-before {
     img {
       width: 100%;
       height: 100%;
+    }
+  }
+}
+
+h2.screen-reader-text {
+  display: none;
+}
+
+.nav-previous {
+  position: relative;
+  left: 0;
+
+  float: left;
+
+  width: 49%;
+
+  text-align: left;
+}
+.nav-next {
+  position: relative;
+  right: 0;
+
+  float: left;
+
+  width: 49%;
+
+  text-align: right;
+}
+
+.con2 {
+  height: 200px;
+  padding: 5px 10px;
+
+  border: 1px solid #60b4e3;
+  ul {
+    li {
+      line-height: 25px;
     }
   }
 }

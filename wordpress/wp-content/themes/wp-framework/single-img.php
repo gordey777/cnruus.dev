@@ -64,19 +64,15 @@
           <div class="jianj">
           <div class="clear mt20"></div>
                 <div class="jj_tit j_tit"><?php the_title(); ?></div>
-                <div class="sj"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></div>
+
             <div class="clear mt20"></div>
-
-
             <div class="j_con">
-
 
               <?php if ( has_post_thumbnail()) :?>
                 <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                   <?php the_post_thumbnail(); // Fullsize image for the single post ?>
                 </a>
               <?php endif; ?><!-- /post thumbnail -->
-
 
               <?php the_content(); ?>
             </div>

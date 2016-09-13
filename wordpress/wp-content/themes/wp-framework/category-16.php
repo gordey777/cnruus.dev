@@ -45,7 +45,7 @@
                 foreach((get_the_category()) as $category) {
                   echo $category->cat_name . ' ';
               } ?>
-
+      <?php wp_reset_query();   ?>
 
             </span>
           </div>

@@ -77,7 +77,6 @@
                 </a>
               <?php endif; ?><!-- /post thumbnail -->
 
-
               <?php the_content(); ?>
             </div>
             <div>
