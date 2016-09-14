@@ -33,28 +33,48 @@
     </div>
 
     <div class="con1">
- <!-- <dl>
-        <dt class="fl">
-          <a href="EconomyDetail.aspx?nid=3805" target="_blank" title="Эксклюзив: Активно развиваются связи между банками России и Китая -- cтарший вице- президент Сбербанк КИБ">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/201609090837139466.png" width="120" height="85" /></a>
-        </dt>
-        <dd class="fr">
-          <h3><a href="EconomyDetail.aspx?nid=3805" target="_blank" title="Эксклюзив: Активно развиваются связи между банками России и Китая -- cтарший вице- президент Сбербанк КИБ">Эксклюзив: Активно ра...</a></h3>
-          <p>Эксклюзив: Активно развиваются связи между банками Ро...<a href="EconomyDetail.aspx?nid=3805" target="_blank">подробнее</a></p>
-        </dd>
-      </dl>
-      <div class="clear"></div>
- -->
-        <ul>
+      <dl>
           <?php
-          $my_posts = get_posts('numberposts=4&category=18');
+          $my_posts = get_posts('numberposts=1&category=18');
+          foreach ($my_posts as $post) :
+          setup_postdata($post);
+          ?>
+
+        <dt class="fl">
+          <a href="<?php the_permalink(); ?>">
+
+            <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" width="120" height="85" />
+
+          </a>
+        </dt>
+
+
+        <dd class="fr">
+          <h3><a href="<?php the_permalink(); ?>"><?php trim_title_chars(20, '...'); ?></a></h3>
+          <p><?php wpeExcerpt2('wpeExcerpt10'); ?>
+<a href="<?php the_permalink(); ?>" target="_blank">подробнее</a>
+          </p>
+        </dd>
+          <?php endforeach; ?>
+
+
+
+      <?php wp_reset_query();   ?>
+
+      </dl>
+
+
+        <ul class="ul-con2">
+          <?php
+          $my_posts = get_posts('numberposts=3&category=18');
           foreach ($my_posts as $post) :
           setup_postdata($post);
           ?>
           <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-            <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
+            <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
           <li/>
           <?php endforeach; ?>
+                <?php wp_reset_query();   ?>
         </ul>
 
     </div>
@@ -62,8 +82,8 @@
 
 
   <div class="wrap fl">
-        <div class="tit1">
-      <a href="<?php echo get_page_link( 63 ); ?>" class="fr">более&gt;&gt;</a>
+    <div class="tit1">
+      <a href="<?php echo get_category_link( 63 ); ?>" class="fr">более&gt;&gt;</a>
       <h3>Предприятия</h3>
     </div>
     <div class="con2">
@@ -129,6 +149,7 @@
       <?php echo $this_category; ?>
     </ul>
 </div>
+
 <div class="clear"></div>
 <div class="ad">
         <?php if( have_rows('first_image_line') ): ?>
@@ -146,6 +167,7 @@
         <?php endif; ?>
 
 </div>
+
 <div class="clear mb10"></div>
 <div class="wrap fl">
   <div class="tit1">
@@ -169,6 +191,7 @@
         </ul>
   </div>
 </div>
+
 <div class="wrap1 fl" style="width: 330px;">
 <div class="tit2">
       <a href="<?php echo get_category_link( 26 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
@@ -208,6 +231,7 @@
     </div>
   </div>
 </div>
+
 <div class="clear"></div>
 <div class="ad">
           <?php if( have_rows('second_image_line') ): ?>
@@ -294,20 +318,28 @@
 <div class="clear mb10"></div>
 <div class="xiaop">
   <div class="xp_tit">
-    <span class="fr"><a href="IntoRussia.aspx?snd=355" target="_blank">новинки</a>|<a href="IntoRussia.aspx?snd=283" target="_blank">рекомендуемые</a>|<a href="IntoRussia.aspx?snd=286" target="_blank">хит продаж</a></span>
+    <span class="fr"><a href="IntoRussia.aspx?snd=355" target="_blank">новинки</a><!-- |<a href="IntoRussia.aspx?snd=283" target="_blank">рекомендуемые</a>|<a href="IntoRussia.aspx?snd=286" target="_blank">хит продаж</a> --></span>
     <h3>Китайские народные изделия</h3>
   </div>
   <div class="xp_con">
 
           <?php
-          $my_posts = get_posts('numberposts=10&category=21,16');
+          $my_posts = get_posts('numberposts=10&category=31');
           foreach ($my_posts as $post) :
           setup_postdata($post);
           ?>
 
           <a href="<?php the_permalink(); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/201609081010562755.png" width="190" height="125" />
-            <br /><?php trim_title_chars(20, '...'); ?>
+            <dt>
+              <?php if ( has_post_thumbnail()) :
+                the_post_thumbnail('custum');
+              else: ?>
+                <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+              <?php endif; ?>
+            </dt>
+            <dd>
+              <?php trim_title_chars(20, '...'); ?>
+            </dd>
           </a>
 
           <?php endforeach; ?>

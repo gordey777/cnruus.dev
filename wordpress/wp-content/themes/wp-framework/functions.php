@@ -197,7 +197,9 @@ if (function_exists('register_sidebar')) {
 
 //  Custom Excerpts
 //  RU: Произвольное обрезание текста
-function wpeExcerpt10($length) {
+function wpeExcerpt7($length) {
+  return 7;
+}function wpeExcerpt10($length) {
   return 10;
 }
 function wpeExcerpt20($length) {
@@ -220,6 +222,21 @@ function wpeExcerpt($length_callback = '', $more_callback = '') {
   $output = apply_filters('wptexturize', $output);
   $output = apply_filters('convert_chars', $output);
   $output = '<p>' . $output . '</p>';
+  echo $output;
+}
+
+function wpeExcerpt2($length_callback = '', $more_callback = '') {
+  global $post;
+  if (function_exists($length_callback)) {
+      add_filter('excerpt_length', $length_callback);
+  }
+  if (function_exists($more_callback)) {
+      add_filter('excerpt_more', $more_callback);
+  }
+  $output = get_the_excerpt();
+  $output = apply_filters('wptexturize', $output);
+  $output = apply_filters('convert_chars', $output);
+  $output = /*'<p>' .*/ $output /*. '</p>'*/;
   echo $output;
 }
 
@@ -721,6 +738,8 @@ function post_is_in_descendant_category( $cats, $_post = null ){
   return false;
 }
 
+
+// category side list
 class Subcategory_Walker_Category extends Walker_Category {
   function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
     extract($args);
