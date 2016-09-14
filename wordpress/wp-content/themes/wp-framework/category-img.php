@@ -82,7 +82,7 @@
               ?>
 
 
-            <h3><?php the_category('', 'multiple'); ?></h3>
+            <h3><?php echo get_category_parents($cat, TRUE, ''); ?></h3>
 
             <ul class="uls2">
               <?php echo $this_category; ?>

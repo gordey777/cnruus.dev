@@ -76,19 +76,19 @@
 
 
       <div id="kinMaxShow" class="mb10">
-        <?php if( have_rows('slider', 35) ): ?>
-          <?php while ( have_rows('slider', 35) ) : the_row(); ?>
-            <div>
-              <a href="<?php the_sub_field('link'); ?>" target="_blank">
-              <?php $image = get_sub_field('image');
-                if( !empty($image) ): ?>
-                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="1020" height="270">
-                <?php endif; ?>
-                </a>
-            </div>
-          <?php  endwhile;
-          else : ?>
-        <?php endif; ?>
+      <?php if( have_rows('header_slider', 15) ): ?>
+        <?php while ( have_rows('header_slider', 15) ) : the_row(); ?>
+          <div>
+            <a href="<?php the_sub_field('link'); ?>" target="_blank">
+            <?php $image = get_sub_field('image');
+            if( !empty($image) ): ?>
+              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="1020" height="270">
+            <?php endif; ?>
+            </a>
+          </div>
+        <?php  endwhile;
+        else : ?>
+      <?php endif; ?>
 
       </div>
 

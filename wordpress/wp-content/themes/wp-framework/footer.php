@@ -12,7 +12,6 @@
   <div class="foot mt10 ">
       <div class="font2 area">
         <p>Адрес :410151，Чанша, Ваньцзяливэй 35,офис 311. &nbsp;&nbsp;&nbsp;&nbsp;Тел. +86 731 84028467&nbsp;&nbsp;&nbsp;&nbsp;РКБЦ：Российско-китайский бизнес-центр</p>
-        <p class="text-r">Сайт создан в:<a target="_blank" href="#">inemd.net</a></p>
 
         <p class="copyright">
           &copy; <?php echo date("Y"); ?> Собственность <?php bloginfo('name'); ?>.

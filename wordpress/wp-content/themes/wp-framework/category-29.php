@@ -8,7 +8,7 @@
           <div class="nr">
 
 
-            <h3><?php the_category('', 'multiple'); ?></h3>
+            <h3><?php echo get_category_parents($cat, TRUE, ''); ?></h3>
 
               <?php $categories = get_the_category($post->ID);
                   if ($categories) {
