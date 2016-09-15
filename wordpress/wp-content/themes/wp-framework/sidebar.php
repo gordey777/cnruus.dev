@@ -11,27 +11,45 @@
   <?php endif; ?>
 
   </aside><!-- /sidebar -->
+      <div class="contactn mt10 mb10">
+      <?php if( have_rows('sidebar_contacts', 15) ): ?>
+        <?php while ( have_rows('sidebar_contacts', 15) ) : the_row(); ?>
 
-
-        <div class="contactn mt10 mb10">
           <div class="tits">
-            <h4><a class="yan2" href="/15">Свяжитесь с нами</a> </h4>
+            <h4>
+            <a href="<?php the_sub_field('contacts_link'); ?>" target="_blank">
+              <?php the_sub_field('contacts_title'); ?>
+            </a> </h4>
           </div>
           <div class="subnr">
-            <img alt="Свяжитесь с нами" width="100%" src="<?php echo get_template_directory_uri(); ?>/img/img14n.gif">
-            <p class="yan2">Российско-китайский бизнес-центр </p>
-            <p><span>Контактное лицо：</span>Фань Семён</p>
-            <p><span>Моб:</span>+86 15388055177</p>
-            <p><span>Тел.：</span>+86 731-84028467</p>
-            <p><span>Режим работы: </span></p>
-            <p>8:30---17:30</p>
-            <p><span>E-mail：</span>hunanrussia@163.com</p>
-            <p><span>Адрес:</span>410151，Ча��ша, Ваньцзяливэй 35,офис 311.　</p>
+            <?php $image = get_sub_field('contacts_image');
+            if( !empty($image) ): ?>
+              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="100%">
+            <?php endif; ?>
+            <?php the_sub_field('contacts_content'); ?>
           </div>
-</div>
-        <a href="#">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/fb.jpg" width="100%">
-        </a>
+
+        <?php  endwhile;
+        else : ?>
+      <?php endif; ?>
+        </div>
+
+
+
+      <?php if( have_rows('sidebar_image', 15) ): ?>
+        <?php while ( have_rows('sidebar_image', 15) ) : the_row(); ?>
+
+            <a href="<?php the_sub_field('contacts_link'); ?>" target="_blank">
+            <?php $image = get_sub_field('contacts_image');
+            if( !empty($image) ): ?>
+              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="100%">
+            <?php endif; ?>
+            </a>
+
+        <?php  endwhile;
+        else : ?>
+      <?php endif; ?>
+
 
 
 
