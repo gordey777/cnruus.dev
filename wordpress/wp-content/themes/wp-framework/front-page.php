@@ -4,8 +4,8 @@
 <div class="sy_l fl">
   <div class="wrap fl">
     <div class="tit1">
-      <a href="<?php echo get_page_link( 71 ); ?>" class="fr">более&gt;&gt;</a>
-      <h3>О компании</h3>
+      <a href="<?php echo get_page_link( 71 ); ?>" class="fr">подробнее&gt;&gt;</a>
+      <h3><?php echo get_the_title( 10 ) ?></h3>
     </div>
 
     <div class="con1">
@@ -24,121 +24,159 @@
 
   <div class="wrap1 fl">
     <div class="tit2">
-      <a href="<?php echo get_category_link( 18 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-      <h3>новости</h3>
+      <a href="<?php echo get_category_link( 18 ); ?>" class="fr" target="_blank">подробнее&gt;&gt;</a>
+
+      <h3><?php echo get_cat_name( 11 ) ?></h3>
     </div>
 
-    <div class="con1">
-      <dl>
-          <?php
-          $my_posts = get_posts('numberposts=1&category=18');
-          foreach ($my_posts as $post) :
-          setup_postdata($post);
-          ?>
+    <div class="con1 tabs">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1" title="Вкладка 1"><?php echo get_cat_name( 18 ) ?></label>
 
-            <dt class="fl">
-              <a href="<?php the_permalink(); ?>">
-                <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" width="120" height="85" />
-              </a>
-            </dt>
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2" title="Вкладка 2"><?php echo get_cat_name( 19 ) ?></label>
 
-            <dd class="fr">
-              <h3><a href="<?php the_permalink(); ?>"><?php trim_title_chars(20, '...'); ?></a></h3>
-              <p>
-                <?php wpeExcerpt2('wpeExcerpt10'); ?>
-                <a href="<?php the_permalink(); ?>" target="_blank">подробнее</a>
-              </p>
-            </dd>
-          <?php endforeach; ?>
-        <?php wp_reset_query();   ?>
-      </dl>
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3" title="Вкладка 3"><?php echo get_cat_name( 22 ) ?></label>
 
-      <ul class="ul-con2">
-        <?php
-        $my_posts = get_posts('numberposts=3&category=18');
-        foreach ($my_posts as $post) :
-        setup_postdata($post);
-        ?>
-        <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-          <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
-        <li/>
-        <?php endforeach; ?>
-        <?php wp_reset_query();   ?>
-      </ul>
+        <section id="content1">
+          <dl class="height">
+              <?php
+              $my_posts = get_posts('numberposts=1&category=18');
+              foreach ($my_posts as $post) :
+              setup_postdata($post);
+              ?>
+
+                <dt class="fl">
+                  <a href="<?php the_permalink(); ?>">
+                    <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" width="120" height="85" />
+                  </a>
+                </dt>
+
+                <dd class="fr height">
+                  <h3><a href="<?php the_permalink(); ?>"><?php trim_title_chars(20, '...'); ?></a></h3>
+                  <p>
+                    <?php wpeExcerpt2('wpeExcerpt10'); ?>
+                    <a href="<?php the_permalink(); ?>" target="_blank">подробнее</a>
+                  </p>
+                </dd>
+              <?php endforeach; ?>
+            <?php wp_reset_query();   ?>
+          </dl>
+
+        <div class="carousel_lite">
+          <ul class="ul-con2">
+            <?php
+            $my_posts = get_posts('numberposts=-1&category=18');
+            foreach ($my_posts as $post) :
+            setup_postdata($post);
+            ?>
+            <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
+              <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
+            </li>
+            <?php endforeach; ?>
+            <?php wp_reset_postdata();   ?>
+          </ul>
+          </div>
+        </section>
+
+        <section id="content2">
+
+          <ul class="ul-con2">
+            <?php
+            $my_posts = get_posts('numberposts=-1&category=19');
+            foreach ($my_posts as $post) :
+            setup_postdata($post);
+            ?>
+            <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
+              <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
+            </li>
+            <?php endforeach;
+            wp_reset_postdata();?>
+          </ul>
+
+        </section>
+        <section id="content3">
+          <ul class="ul-con2">
+            <?php
+            $my_posts = get_posts('numberposts=1&category=22');
+            foreach ($my_posts as $post) :
+            setup_postdata($post);
+            ?>
+            <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
+              <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
+            </li>
+            <?php endforeach; ?>
+            <?php wp_reset_query();   ?>
+          </ul>
+        </section>
 
     </div>
   </div>
 
 
-  <div class="wrap fl">
+  <div class="wrap fl width2">
     <div class="tit1">
-      <a href="<?php echo get_category_link( 63 ); ?>" class="fr">более&gt;&gt;</a>
-      <h3>Предприятия</h3>
+      <a href="<?php echo get_category_link( 29 ); ?>" class="fr">подробнее&gt;&gt;</a>
+      <h3><?php echo get_cat_name( 29 ) ?></h3>
     </div>
     <div class="con2">
 
       <ul>
           <?php
-          $my_posts = get_posts('numberposts=6&category=63');
+          $my_posts = get_posts('numberposts=9&category=29');
           foreach ($my_posts as $post) :
           setup_postdata($post);
           ?>
           <li>
             <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
-          <li/>
+          </li>
           <?php endforeach; ?>
           <?php wp_reset_query();   ?>
       </ul>
 
-      <ul id="demo2"></ul>
+
     </div>
   </div>
 
 
-  <div class="wrap1 fl">
-    <div class="tit2">
-      <a href="<?php echo get_category_link( 19 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-      <h3>мероприятия</h3>
-    </div>
 
-    <div class="con2">
-        <ul>
-          <?php
-          $my_posts = get_posts('numberposts=4&category=19');
-          foreach ($my_posts as $post) :
-          setup_postdata($post);
-          ?>
-          <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-            <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
-          <li/>
-          <?php endforeach; ?>
-          <?php wp_reset_query();   ?>
-        </ul>
-    </div>
-
-  </div>
 </div>
 
 
 <div class="fenl fr">
-  <h3>Каталоги</h3>
+  <a href="<?php echo get_category_link( 63 ); ?>">
+    <h3><?php echo get_cat_name( 63 ) ?></h3>
+  </a>
     <ul class="mainPageList">
-      <?php $this_category = wp_list_categories(
-        array(
-          'show_option_none'   => '',
-          'hide_empty'         => 0,
-          'orderby'            => 'name',
-          'show_count'         => '0',
+<!--       <?php $this_category = wp_list_categories(
+  array(
+    'show_option_none'   => '',
+    'hide_empty'         => 0,
+    'orderby'            => 'name',
+    'show_count'         => '0',
 
-          'title_li'           => '',
-          'use_desc_for_title' => '0',
-          'child_of'           => '30',
-          'echo'               => '0'
-          )
-        );
-      ?>
-      <?php echo $this_category; ?>
-      <?php wp_reset_query();   ?>
+    'title_li'           => '',
+    'use_desc_for_title' => '0',
+    'child_of'           => '63',
+    'echo'               => '0'
+    )
+  );
+?>
+<?php echo $this_category; ?>
+<?php wp_reset_query();   ?> -->
+      <?php
+          $my_posts = get_posts('numberposts=-1&category=63');
+          foreach ($my_posts as $post) :
+          setup_postdata($post);
+          ?>
+          <li>
+            <a href="<?php the_permalink(); ?>">
+              <?php trim_title_chars(27, '...'); ?>
+            </a>
+          </li>
+          <?php endforeach; ?>
+          <?php wp_reset_query();   ?>
     </ul>
 </div>
 
@@ -160,71 +198,136 @@
 </div>
 
 <div class="clear mb10"></div>
-<div class="wrap fl">
+
+<div class="w-full">
+
   <div class="tit1">
-    <a href="<?php echo get_category_link( 25 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-    <h3>О спросах</h3>
+    <a href="<?php echo get_category_link( 25 ); ?>" class="fr" target="_blank">подробнее&gt;&gt;</a>
+    <h3><?php echo get_cat_name( 19 ) ?></h3>
 
   </div>
+  <div class="con3">
 
-  <div class="con2">
-
-    <ul>
-      <?php
-      $my_posts = get_posts('numberposts=4&category=25');
-      foreach ($my_posts as $post) :
-      setup_postdata($post);
-      ?>
-      <li>
-        <font>·  </font>
-        <a href="<?php the_permalink(); ?>">
-          <?php trim_title_chars(75, '...'); ?>
-        </a>
-      <li/>
-      <?php endforeach; ?>
-      <?php wp_reset_query();   ?>
-    </ul>
-  </div>
-</div>
-
-<div class="wrap1 fl" style="width: 330px;">
-  <div class="tit2">
-    <a href="<?php echo get_category_link( 26 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-    <h3>Поставки</h3>
-  </div>
-
-  <div class="con2">
-
-    <ul>
-      <?php
-      $my_posts = get_posts('numberposts=4&category=26');
-      foreach ($my_posts as $post) :
-      setup_postdata($post);
-      ?>
-      <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-        <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
-      <li/>
-      <?php endforeach; ?>
-      <?php wp_reset_query();   ?>
-    </ul>
-
-  </div>
-</div>
-
-<div class="wrap fr" style="margin-right: 0;">
-  <div class="tit1">
-    <h3>Фото / Видео</h3>
-  </div>
-  <div id="hotpic">
-    <div id="NewsPic" style="position: relative;">
-      <a style="" target="_blank" href="http://russian.cctv.com/2016/06/07/VIDEHdYeiWzMfuKZHGjvF0wc160607.shtml"><img class="Picture" src="<?php echo get_template_directory_uri(); ?>/img/201606072123189398.jpg" width="323" height="210" /></a>
-      <a style="visibility: hidden; display: none;" target="_blank" href="http://www.zjjgood.com/system/video.php?videoId=213"><img class="Picture" src="<?php echo get_template_directory_uri(); ?>/img/201607291617248851.jpg" width="323" height="210" /></a>
-      <div class="Nav" style="position: absolute; bottom: 0; z-index: 999;">
-        <span class="Cur">1</span> <span class="Normal">2</span>
+    <div class="wrap-5">
+      <div class="tit3">
+          <a href="<?php echo get_category_link( 7 ); ?>" class="fr" target="_blank">
+            <h3>
+              <?php echo get_cat_name( 7 ) ?>
+            </h3>
+          </a>
+      </div>
+        <div class="con4">
+            <ul class="bor-right">
+              <?php
+              $my_posts = get_posts('numberposts=-1&category=7');
+              foreach ($my_posts as $post) :
+              setup_postdata($post);
+              ?>
+              <li>
+                <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(25, '...'); ?></a>
+              </li>
+              <?php endforeach; ?>
+              <?php wp_reset_query();   ?>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap-5">
+      <div class="tit3">
+          <a href="<?php echo get_category_link( 8 ); ?>" class="fr" target="_blank">
+            <h3>
+              <?php echo get_cat_name( 8 ) ?>
+            </h3>
+          </a>
+      </div>
+        <div class="con4">
+            <ul class="bor-right">
+              <?php
+              $my_posts = get_posts('numberposts=-1&category=8');
+              foreach ($my_posts as $post) :
+              setup_postdata($post);
+              ?>
+              <li>
+                <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(25, '...'); ?></a>
+              </li>
+              <?php endforeach; ?>
+              <?php wp_reset_query();   ?>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap-5">
+      <div class="tit3">
+          <a href="<?php echo get_category_link( 16 ); ?>" class="fr" target="_blank">
+            <h3>
+              <?php echo get_cat_name( 16 ) ?>
+            </h3>
+          </a>
+      </div>
+      <div id="demo" class="con4 demo">
+          <ul id="demo1" class="bor-right demo1">
+            <?php
+            $my_posts = get_posts('numberposts=-1&category=16');
+            foreach ($my_posts as $post) :
+            setup_postdata($post);
+            ?>
+            <li>
+              <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(24, '...'); ?></a>
+            </li>
+            <?php endforeach; ?>
+            <?php wp_reset_query();   ?>
+          </ul>
+          <ul id="demo2" class="demo1"></ul>
       </div>
     </div>
+    <div class="wrap-5">
+      <div class="tit3">
+          <a href="<?php echo get_category_link( 65 ); ?>" class="fr" target="_blank">
+            <h3>
+              <?php echo get_cat_name( 65 ) ?>
+            </h3>
+          </a>
+      </div>
+        <div class="con4">
+            <ul class="bor-right">
+              <?php
+              $my_posts = get_posts('numberposts=-1&category=65');
+              foreach ($my_posts as $post) :
+              setup_postdata($post);
+              ?>
+              <li>
+                <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(25, '...'); ?></a>
+              </li>
+              <?php endforeach; ?>
+              <?php wp_reset_query();   ?>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap-5">
+      <div class="tit3">
+        <h3>
+          Докуметы (скачать)
+        </h3>
+
+      </div>
+      <div class="con4">
+        <ul>
+          <?php if( have_rows('documents', 15) ): ?>
+            <?php while ( have_rows('documents', 15) ) : the_row(); ?>
+              <li>
+                <?php if( get_sub_field('file') ): ?>
+                  <a href="<?php the_sub_field('file'); ?>" ><?php the_sub_field('file_title'); ?> (скачать)</a>
+                <?php endif; ?>
+              </li>
+            <?php  endwhile;
+            else : ?>
+          <?php endif; ?>
+        </ul>
+      </div>
+    </div>
+
+
   </div>
 </div>
+
 
 <div class="clear"></div>
 
@@ -246,73 +349,6 @@
 
 </div>
 
-<div class="clear mb10"></div>
-<div class="wrap fl">
-  <div class="tit1">
-
-      <a href="<?php echo get_category_link( 28 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-      <h3>Бизнес в Китае</h3>
-    </div>
-
-    <div class="con2">
-      <ul>
-        <?php
-        $my_posts = get_posts('numberposts=4&category=28');
-        foreach ($my_posts as $post) :
-        setup_postdata($post);
-        ?>
-        <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-          <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
-        <li/>
-        <?php endforeach; ?>
-        <?php wp_reset_query();   ?>
-
-      </ul>
-    </div>
-</div>
-
-<div class="wrap1 fl" style="width: 330px;">
-  <div class="tit2">
-      <a href="<?php echo get_category_link( 16 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-      <h3>Выставки</h3>
-    </div>
-
-    <div class="con2">
-        <ul>
-          <?php
-          $my_posts = get_posts('numberposts=4&category=16');
-          foreach ($my_posts as $post) :
-          setup_postdata($post);
-          ?>
-          <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-            <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(60, '...'); ?></a>
-          <li/>
-          <?php endforeach; ?>
-          <?php wp_reset_query();   ?>
-        </ul>
-    </div>
-</div>
-
-<div class="wrap fr" style="margin-right: 0;">
-  <div class="tit1">
-    <a href="<?php echo get_category_link( 21 ); ?>" class="fr" target="_blank">более&gt;&gt;</a>
-    <h3>Нормативные документы</h3>
-  </div>
-    <div class="con2">
-        <ul>
-          <?php
-          $my_posts = get_posts('numberposts=4&category=21');
-          foreach ($my_posts as $post) :
-          setup_postdata($post);
-          ?>
-          <li>
-            <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
-          <li/>
-          <?php endforeach; ?>
-          <?php wp_reset_query();   ?>
-        </ul>
-    </div>
-</div>
 
 <div class="clear mb10"></div>
 <div class="xiaop">
@@ -351,9 +387,9 @@
 <div class="area">
   <div class="guanz">
     <div class="gz_tit">
-      <a href="IndustryConcern.aspx" target="_blank">
-        О нас
-      </a>
+<!--       <a href="IndustryConcern.aspx" target="_blank">
+  О нас
+</a> -->
     </div>
           <?php
           $my_posts = get_posts('numberposts=4&category=64');
@@ -410,8 +446,6 @@
 
   <div class="clear"></div>
 </div>
-
-
 
 
 

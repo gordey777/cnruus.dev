@@ -97,48 +97,25 @@
 </footer><!-- /footer -->
 
 
-<!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js" type="text/javascript"> -->
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.kinMaxShow-1.0.min.js" type="text/javascript">
+  </script>
 
-    </script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.kinMaxShow-1.0.min.js" type="text/javascript">
-    </script>
-    <script type="text/javascript">
+  <script type="text/javascript">
       $(function() {
         $("#kinMaxShow").kinMaxShow();
       });
-    </script>
+  </script>
 
-<!--     <script>
-  var speed = 50
-  demo2.innerHTML = demo1.innerHTML
 
-  function Marquee() {
-    if (demo2.offsetTop - demo.scrollTop <= 0)
-      demo.scrollTop -= demo1.offsetHeight
-    else {
-      demo.scrollTop++
-    }
-  }
-  var MyMar = setInterval(Marquee, speed)
-  demo.onmouseover = function() {
-    clearInterval(MyMar)
-  }
-  demo.onmouseout = function() {
-    MyMar = setInterval(Marquee, speed)
-  }
-</script> -->
-<!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.litenav.js" type="text/javascript">
-</script>
-    <script type="text/javascript">
-      $('#hotpic').liteNav(1000);
-    </script>-->
+
   <script type="text/javascript">
   $(function() {
     $("#AreaNav li:eq(9) a").addClass("cur");
   });
   </script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
     function ShearcKey() {
       var ShearText = $.trim($("#ShearText").val());
       if (ShearText != "" && ShearText != "请输入您要搜索的关键词") {
@@ -184,8 +161,56 @@
         $(this).children(".2wm").hide();
       });
     });
-    </script>
+  </script>
 
+<!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.litenav.js" type="text/javascript">
+</script>
+    <script type="text/javascript">
+      $('#hotpic').liteNav(1000);
+    </script>-->
+  <!-- UL CARUSEL -->
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jcarousellite.js" type="text/javascript"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.mousewheel-3.1.12.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(function() {
+          $(".carousel_lite").jCarouselLite({
+              btnNext: "",
+              btnPrev: "",
+              //circular: false,
+              vertical: true,
+              mouseWheel: true,
+              auto: 5000,
+              scroll: 1,
+              visible: 4,
+              speed: 400,
+          });
+      });
+
+    });
+  </script>
+<!--   <script type="text/javascript">
+  $(document).ready(function() {
+    var speed = 50
+  demo2.innerHTML = demo1.innerHTML
+
+  function Marquee() {
+    if (demo2.offsetTop - demo.scrollTop <= 0)
+      demo.scrollTop -= demo1.offsetHeight
+    else {
+      demo.scrollTop++
+    }
+  }
+  var MyMar = setInterval(Marquee, speed)
+  demo.onmouseover = function() {
+    clearInterval(MyMar)
+  }
+  demo.onmouseout = function() {
+    MyMar = setInterval(Marquee, speed)
+  }
+
+  });
+</script> -->
 
 
     <?php wp_footer(); ?>
