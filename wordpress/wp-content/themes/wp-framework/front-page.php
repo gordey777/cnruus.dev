@@ -80,60 +80,78 @@
           </div>
         </section>
 
-        <section id="content2">
+        <section id="content2" class="scroll-list">
 
-          <ul class="ul-con2">
-            <?php
-            $my_posts = get_posts('numberposts=-1&category=19');
-            foreach ($my_posts as $post) :
-            setup_postdata($post);
-            ?>
-            <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-              <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
-            </li>
-            <?php endforeach;
-            wp_reset_postdata();?>
-          </ul>
+            <ul class="ul-con2">
+              <?php
+              $my_posts = get_posts('numberposts=-1&category=19');
+              foreach ($my_posts as $post) :
+              setup_postdata($post);
+              ?>
+              <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
+                <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
+              </li>
+              <?php endforeach;
+              wp_reset_postdata();?>
+            </ul>
 
         </section>
-        <section id="content3">
-          <ul class="ul-con2">
-            <?php
-            $my_posts = get_posts('numberposts=1&category=22');
-            foreach ($my_posts as $post) :
-            setup_postdata($post);
-            ?>
-            <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
-              <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
-            </li>
-            <?php endforeach; ?>
-            <?php wp_reset_query();   ?>
-          </ul>
-        </section>
+        <section id="content3" class="scroll-list">
 
-    </div>
+            <ul class="ul-con2">
+              <?php
+              $my_posts = get_posts('numberposts=1&category=22');
+              foreach ($my_posts as $post) :
+              setup_postdata($post);
+              ?>
+              <li><span class="fr">[<?php the_time('j F Y'); ?>]</span>
+                <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(40, '...'); ?></a>
+              </li>
+              <?php endforeach; ?>
+              <?php wp_reset_query();   ?>
+            </ul>
+
+
+        </section>
+      </div>
   </div>
 
-
+<!-- Servise -->
   <div class="wrap fl width2">
     <div class="tit1">
       <a href="<?php echo get_category_link( 29 ); ?>" class="fr">подробнее&gt;&gt;</a>
       <h3><?php echo get_cat_name( 29 ) ?></h3>
     </div>
-    <div class="con2">
+    <div class="con2 serv-cont">
 
-      <ul>
-          <?php
-          $my_posts = get_posts('numberposts=9&category=29');
-          foreach ($my_posts as $post) :
-          setup_postdata($post);
-          ?>
-          <li>
-            <font>·  </font><a href="<?php the_permalink(); ?>"><?php trim_title_chars(75, '...'); ?></a>
-          </li>
-          <?php endforeach; ?>
-          <?php wp_reset_query();   ?>
-      </ul>
+      <?php if( have_rows('service', 15) ): ?>
+          <?php while ( have_rows('service', 15) ) : the_row(); ?>
+          <div class="serv-row">
+            <div class="serv-title">
+              <a href="<?php the_sub_field('link_1'); ?>">
+                <h3>
+                  <?php the_sub_field('title_1'); ?>
+                </h3>
+              </a>
+            </div>
+            <div class="serv-title">
+              <a href="<?php the_sub_field('link_2'); ?>">
+                <h3>
+                  <?php the_sub_field('title_2'); ?>
+                </h3>
+              </a>
+            </div>
+            <div class="serv-title">
+              <a href="<?php the_sub_field('link_3'); ?>">
+                <h3>
+                  <?php the_sub_field('title_3'); ?>
+                </h3>
+              </a>
+            </div>
+          </div>
+          <?php  endwhile;
+          else : ?>
+        <?php endif; ?>
 
 
     </div>
@@ -148,23 +166,28 @@
   <a href="<?php echo get_category_link( 63 ); ?>">
     <h3><?php echo get_cat_name( 63 ) ?></h3>
   </a>
+  <div class="scroll-list mainPage">
     <ul class="mainPageList">
-<!--       <?php $this_category = wp_list_categories(
-  array(
-    'show_option_none'   => '',
-    'hide_empty'         => 0,
-    'orderby'            => 'name',
-    'show_count'         => '0',
+    <!-- CATEGIRY LIST -->
+      <?php $this_category = wp_list_categories(
+        array(
+          'show_option_none'   => '',
+          'hide_empty'         => 0,
+          'orderby'            => 'name',
+          'show_count'         => '0',
+          'hierarchical'       => '0',
+          'depth'              => '0',
 
-    'title_li'           => '',
-    'use_desc_for_title' => '0',
-    'child_of'           => '63',
-    'echo'               => '0'
-    )
-  );
-?>
-<?php echo $this_category; ?>
-<?php wp_reset_query();   ?> -->
+          'title_li'           => '',
+          'use_desc_for_title' => '0',
+          'child_of'           => '63',
+          'echo'               => '0'
+          )
+        );
+      ?>
+      <?php echo $this_category; ?>
+      <?php wp_reset_query();   ?>
+      <!-- POST LIST -->
       <?php
           $my_posts = get_posts('numberposts=-1&category=63');
           foreach ($my_posts as $post) :
@@ -172,12 +195,13 @@
           ?>
           <li>
             <a href="<?php the_permalink(); ?>">
-              <?php trim_title_chars(27, '...'); ?>
+              <?php trim_title_chars(24, '...'); ?>
             </a>
           </li>
           <?php endforeach; ?>
           <?php wp_reset_query();   ?>
     </ul>
+  </div>
 </div>
 
 <div class="clear"></div>
@@ -216,7 +240,7 @@
             </h3>
           </a>
       </div>
-        <div class="con4">
+        <div class="con4 scroll-list">
             <ul class="bor-right">
               <?php
               $my_posts = get_posts('numberposts=-1&category=7');
@@ -239,7 +263,7 @@
             </h3>
           </a>
       </div>
-        <div class="con4">
+        <div class="con4 scroll-list">
             <ul class="bor-right">
               <?php
               $my_posts = get_posts('numberposts=-1&category=8');
@@ -262,8 +286,8 @@
             </h3>
           </a>
       </div>
-      <div id="demo" class="con4 demo">
-          <ul id="demo1" class="bor-right demo1">
+      <div class="con4 scroll-list">
+          <ul class="bor-right">
             <?php
             $my_posts = get_posts('numberposts=-1&category=16');
             foreach ($my_posts as $post) :
@@ -275,7 +299,7 @@
             <?php endforeach; ?>
             <?php wp_reset_query();   ?>
           </ul>
-          <ul id="demo2" class="demo1"></ul>
+
       </div>
     </div>
     <div class="wrap-5">
@@ -286,7 +310,7 @@
             </h3>
           </a>
       </div>
-        <div class="con4">
+        <div class="con4 scroll-list">
             <ul class="bor-right">
               <?php
               $my_posts = get_posts('numberposts=-1&category=65');
@@ -306,9 +330,8 @@
         <h3>
           Докуметы (скачать)
         </h3>
-
       </div>
-      <div class="con4">
+      <div class="con4 scroll-list">
         <ul>
           <?php if( have_rows('documents', 15) ): ?>
             <?php while ( have_rows('documents', 15) ) : the_row(); ?>

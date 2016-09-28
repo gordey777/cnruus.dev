@@ -17,31 +17,20 @@
           &copy; <?php echo date("Y"); ?> Собственность <?php bloginfo('name'); ?>.
         </p><!-- /copyright -->
       </div>
+      <div id="wbs">
+        Разработан компанией
+        <a href="http://wbsite.ru/" title="WBS" target="_blank">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/logo_wbs.png">
+        </a>
+      </div>
     </div>
 
+<!-- SOCIAL NETWORKS -->
 
     <div id="leftsead">
+
       <ul>
-        <li>
-          <a href="javascript:void(0)" class="youhui">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/l02.png" width="47" height="49" class="shows">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/a.png" width="57" height="49" class="hides">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/weixin.jpg" width="145" class="2wm" style="display: none; margin: -100px 57px 0 0">
-          </a>
-        </li>
-        <li>
-          <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=282794290&amp;site=qq&amp;menu=yes" target="_blank">
-            <div class="hides" style="width: 161px; display: none;" id="qq">
-              <div class="hides" id="p1">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/ll04.png">
-              </div>
-              <div class="hides" id="p2">
-                <span style="color: #FFF; font-size: 13px">282794290</span>
-              </div>
-            </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/l04.png" width="47" height="49" class="shows">
-          </a>
-        </li>
+
         <li id="tel">
           <a href="javascript:void(0)">
             <div class="hides" style="width: 161px; display: none;" id="tels">
@@ -49,48 +38,38 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/img/ll05.png">
               </div>
               <div class="hides" id="p4">
-                <span style="color: #FFF; font-size: 12px">+86 15388055177</span>
+                <span style="color: #FFF; font-size: 12px">
+                  <?php the_field('tel_number', 15); ?>
+                </span>
               </div>
             </div>
             <img src="<?php echo get_template_directory_uri(); ?>/img/l05.png" width="47" height="49" class="shows">
           </a>
         </li>
-        <li id="mail">
-          <a href="javascript:void(0)">
-            <div class="hides" style="width: 161px; display: none;" id="mails">
-              <div class="hides" id="p1">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/ll07.png" width="47" height="49">
-              </div>
-              <div class="hides" id="p3">
-                <span style="color: #FFF; font-size: 12px">hunanrussia@163.com</span>
-              </div>
-            </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/l07.png" width="47" height="49" class="shows">
-          </a>
-        </li>
-        <li id="mail">
-          <a href="https://vk.com/cnruss" target="_blank">
-            <div class="hides" style="width: 161px; display: none;" id="mails">
-              <div class="hides" id="p1">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/1109.png" width="47" height="49">
-              </div>
-              <div class="hides" id="p3" style=" background:#4f6f95;border-color:#4f6f95;">
-                <span style="color: #FFF; font-size: 12px">ВКонтакте</span>
-              </div>
-            </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/109.png" width="47" height="49" class="shows">
-          </a>
-        </li>
-        <li id="btn">
-          <a id="top_btn">
-            <div class="hides" style="width: 161px; display: none">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/ll08.png" width="161" height="49">
-            </div>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/l08.png" width="47" height="49" class="shows">
-          </a>
-        </li>
+        <?php if( have_rows('social_net', 15) ): ?>
+          <?php while ( have_rows('social_net', 15) ) : the_row(); ?>
+            <li>
+              <a href="<?php the_sub_field('link'); ?>" target="_blank">
+                  <div class="hides" style="width: 161px; display: none;" id="mails">
+                    <div class="hides soc-p1">
+                      <?php $image = get_sub_field('logo_2');
+                      if( !empty($image) ): ?>
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="47" height="49">
+                      <?php endif; ?>
+                    </div>
+                    <?php the_sub_field('text'); ?>
+                  </div>
+                  <?php $image = get_sub_field('logo_1');
+                  if( !empty($image) ): ?>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="47" height="49" class="shows">
+                  <?php endif; ?>
+                </a>
+              </li>
+          <?php  endwhile;
+          else : ?>
+        <?php endif; ?>
       </ul>
-    </div>
+    </div> <!-- #leftsead -->
 
 
 
@@ -163,14 +142,9 @@
     });
   </script>
 
-<!--     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.litenav.js" type="text/javascript">
-</script>
-    <script type="text/javascript">
-      $('#hotpic').liteNav(1000);
-    </script>-->
-  <!-- UL CARUSEL -->
   <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jcarousellite.js" type="text/javascript"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.mousewheel-3.1.12.js" type="text/javascript"></script>
+
   <script type="text/javascript">
     $(document).ready(function() {
       $(function() {
@@ -187,33 +161,34 @@
           });
       });
 
+      $(function() {
+
+      var tabs = $('.shop2-product-tabs li'),
+        btns = tabs.find('a'),
+        texts = $('.shop2-product-desc > div');
+
+      btns.on('click', function(e) {
+        var $this = $(this),
+          href = $this.attr('href');
+
+        e.preventDefault();
+
+        tabs.removeClass('active-tab');
+        $this.parent().addClass('active-tab');
+
+        texts.removeClass('active-area');
+        $(href).addClass('active-area');
+      });
+
+
+      });
     });
   </script>
-<!--   <script type="text/javascript">
-  $(document).ready(function() {
-    var speed = 50
-  demo2.innerHTML = demo1.innerHTML
 
-  function Marquee() {
-    if (demo2.offsetTop - demo.scrollTop <= 0)
-      demo.scrollTop -= demo1.offsetHeight
-    else {
-      demo.scrollTop++
-    }
-  }
-  var MyMar = setInterval(Marquee, speed)
-  demo.onmouseover = function() {
-    clearInterval(MyMar)
-  }
-  demo.onmouseout = function() {
-    MyMar = setInterval(Marquee, speed)
-  }
-
-  });
-</script> -->
 
 
     <?php wp_footer(); ?>
 
 </body>
 </html>
+
