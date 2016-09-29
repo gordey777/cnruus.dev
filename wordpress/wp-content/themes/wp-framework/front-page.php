@@ -1,6 +1,6 @@
 <?php /* Template Name: Front */ get_header(); ?>
 
-
+   <!-- O NAS -->
 <div class="sy_l fl">
   <div class="wrap fl">
     <div class="tit1">
@@ -21,7 +21,7 @@
       </p>
     </div>
   </div>
-
+<!-- INF POLITIKA -->
   <div class="wrap1 fl">
     <div class="tit2">
       <a href="<?php echo get_category_link( 18 ); ?>" class="fr" target="_blank">подробнее&gt;&gt;</a>
@@ -114,9 +114,9 @@
 
         </section>
       </div>
-  </div>
+</div>
 
-<!-- Servise -->
+<!-- USLUGI -->
   <div class="wrap fl width2">
     <div class="tit1">
       <a href="<?php echo get_category_link( 29 ); ?>" class="fr">подробнее&gt;&gt;</a>
@@ -129,44 +129,35 @@
           <div class="serv-row">
             <div class="serv-title">
               <a href="<?php the_sub_field('link_1'); ?>">
-                <h3>
-                  <?php the_sub_field('title_1'); ?>
-                </h3>
+                <h3><?php the_sub_field('title_1'); ?></h3>
               </a>
             </div>
             <div class="serv-title">
               <a href="<?php the_sub_field('link_2'); ?>">
-                <h3>
-                  <?php the_sub_field('title_2'); ?>
-                </h3>
+                <h3><?php the_sub_field('title_2'); ?></h3>
               </a>
             </div>
             <div class="serv-title">
               <a href="<?php the_sub_field('link_3'); ?>">
-                <h3>
-                  <?php the_sub_field('title_3'); ?>
-                </h3>
+                <h3><?php the_sub_field('title_3'); ?></h3>
               </a>
             </div>
           </div>
           <?php  endwhile;
           else : ?>
         <?php endif; ?>
-
-
     </div>
   </div>
+</div><!-- sy_l fl -->
 
-
-
-</div>
-
-
-<div class="fenl fr">
-  <a href="<?php echo get_category_link( 63 ); ?>">
-    <h3><?php echo get_cat_name( 63 ) ?></h3>
-  </a>
-  <div class="scroll-list mainPage">
+<!-- PREDPIIATIA -->
+<div class="fenl fr pred">
+<div class="tit1">
+      <a href="<?php echo get_category_link( 63 ); ?>" class="fr">подробнее&gt;&gt;</a>
+      <h3><?php echo get_cat_name( 63 ) ?></h3>
+    </div>
+  <div class="mainPage">
+  <div class="carusel1">
     <ul class="mainPageList">
     <!-- CATEGIRY LIST -->
       <?php $this_category = wp_list_categories(
@@ -176,7 +167,7 @@
           'orderby'            => 'name',
           'show_count'         => '0',
           'hierarchical'       => '0',
-          'depth'              => '0',
+          'depth'       => '0',
 
           'title_li'           => '',
           'use_desc_for_title' => '0',
@@ -189,7 +180,10 @@
       <?php wp_reset_query();   ?>
       <!-- POST LIST -->
       <?php
-          $my_posts = get_posts('numberposts=-1&category=63');
+          $my_posts = get_posts(array(
+                    'category' => '63,-67',
+                    'numberposts' => -1,
+                      ));
           foreach ($my_posts as $post) :
           setup_postdata($post);
           ?>
@@ -202,8 +196,9 @@
           <?php wp_reset_query();   ?>
     </ul>
   </div>
+  </div>
 </div>
-
+<!-- First baner line -->
 <div class="clear"></div>
 <div class="ad">
   <?php if( have_rows('first_line_images', 15) ): ?>
@@ -223,24 +218,22 @@
 
 <div class="clear mb10"></div>
 
+
+<!-- Meropriateya -->
 <div class="w-full">
 
   <div class="tit1">
     <a href="<?php echo get_category_link( 25 ); ?>" class="fr" target="_blank">подробнее&gt;&gt;</a>
     <h3><?php echo get_cat_name( 19 ) ?></h3>
-
   </div>
   <div class="con3">
-
     <div class="wrap-5">
       <div class="tit3">
-          <a href="<?php echo get_category_link( 7 ); ?>" class="fr" target="_blank">
-            <h3>
-              <?php echo get_cat_name( 7 ) ?>
-            </h3>
+          <a href="<?php echo get_category_link( 7 ); ?>" target="_blank">
+            <h3><?php echo get_cat_name( 7 ) ?></h3>
           </a>
       </div>
-        <div class="con4 scroll-list">
+        <div class="con4 carusel2">
             <ul class="bor-right">
               <?php
               $my_posts = get_posts('numberposts=-1&category=7');
@@ -257,16 +250,14 @@
     </div>
     <div class="wrap-5">
       <div class="tit3">
-          <a href="<?php echo get_category_link( 8 ); ?>" class="fr" target="_blank">
-            <h3>
-              <?php echo get_cat_name( 8 ) ?>
-            </h3>
+          <a href="<?php echo get_category_link( 8 ); ?>" target="_blank">
+            <h3><?php echo get_cat_name( 8 ) ?></h3>
           </a>
       </div>
-        <div class="con4 scroll-list">
+        <div class="con4 carusel3">
             <ul class="bor-right">
               <?php
-              $my_posts = get_posts('numberposts=-1&category=8');
+              $my_posts = get_posts('numberposts=10&category=8');
               foreach ($my_posts as $post) :
               setup_postdata($post);
               ?>
@@ -280,13 +271,11 @@
     </div>
     <div class="wrap-5">
       <div class="tit3">
-          <a href="<?php echo get_category_link( 16 ); ?>" class="fr" target="_blank">
-            <h3>
-              <?php echo get_cat_name( 16 ) ?>
-            </h3>
+          <a href="<?php echo get_category_link( 16 ); ?>" target="_blank">
+            <h3><?php echo get_cat_name( 16 ) ?></h3>
           </a>
       </div>
-      <div class="con4 scroll-list">
+      <div class="con4 carusel4">
           <ul class="bor-right">
             <?php
             $my_posts = get_posts('numberposts=-1&category=16');
@@ -304,13 +293,11 @@
     </div>
     <div class="wrap-5">
       <div class="tit3">
-          <a href="<?php echo get_category_link( 65 ); ?>" class="fr" target="_blank">
-            <h3>
-              <?php echo get_cat_name( 65 ) ?>
-            </h3>
+          <a href="<?php echo get_category_link( 65 ); ?>" target="_blank">
+            <h3><?php echo get_cat_name( 65 ) ?></h3>
           </a>
       </div>
-        <div class="con4 scroll-list">
+        <div class="con4 carusel5">
             <ul class="bor-right">
               <?php
               $my_posts = get_posts('numberposts=-1&category=65');
@@ -327,12 +314,10 @@
     </div>
     <div class="wrap-5">
       <div class="tit3">
-        <h3>
-          Докуметы (скачать)
-        </h3>
+        <h3>Документы (скачать)</h3>
       </div>
-      <div class="con4 scroll-list">
-        <ul>
+      <div class="con4 carusel6">
+        <ul class="bxslider1">
           <?php if( have_rows('documents', 15) ): ?>
             <?php while ( have_rows('documents', 15) ) : the_row(); ?>
               <li>

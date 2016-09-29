@@ -82,34 +82,23 @@
               ?>
               <?php echo $this_category; ?>
 
-              <?php $categories = get_the_category($post->ID);
-                  if ($categories) {
-                   $category_ids = array();
-                   foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
-                   $args=array(
-                   'category__in' => $category_ids, // Сортировка производится по категориям
-                   'showposts'=>99, //Количество выводимых записей
-                   'caller_get_posts'=>1); // Запрещаем повторение ссылок
-                   $my_query = new wp_query($args);
-                   if( $my_query->have_posts() ) {
-
-                          while ($my_query->have_posts()) {
-                              $my_query->the_post();
-                          ?>
-                              <li>
-                                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-
-                                  <?php the_title(); ?>
-
-                                </a>
-                              </li>
-                          <?php
-                          }
-
-
-                      }
+              <?php
+                  $my_posts = get_posts(
+                    array(
+                    //'posts_per_page' => 5,
+                    //'offset'=> 0,
+                    'category' => '63,-67',
+                    'numberposts' => -1,
+                      ));
+                  foreach ($my_posts as $post) :
+                  setup_postdata($post);
+                  ?>
+                  <li>
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                  </li>
+                  <?php endforeach;
                   wp_reset_query();
-              } ?>
+               ?>
             </ul>
           </div>
         </div>

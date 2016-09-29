@@ -18,7 +18,7 @@
         </p><!-- /copyright -->
       </div>
       <div id="wbs">
-        Разработан компанией
+        <p> Разработан компанией</p>
         <a href="http://wbsite.ru/" title="WBS" target="_blank">
           <img src="<?php echo get_template_directory_uri(); ?>/img/logo_wbs.png">
         </a>
@@ -159,7 +159,125 @@
               visible: 4,
               speed: 400,
           });
+
+        $(function(){
+            var countLi = $('.carusel1>ul>li').size();
+
+            if (countLi >19) {
+
+            $(".carusel1").jCarouselLite({
+                btnNext: "",
+                btnPrev: "",
+                //circular: false,
+                vertical: true,
+                mouseWheel: true,
+                auto: 5000,
+                scroll: 1,
+                visible: 10,
+                speed: 400,
+            });
+          }
+        });
+
+        $(function(){
+            var countLi = $('.carusel2>ul>li').size();
+
+            if (countLi >10) {
+
+            $(".carusel2").jCarouselLite({
+                btnNext: "",
+                btnPrev: "",
+                //circular: false,
+                vertical: true,
+                mouseWheel: true,
+                auto: 5000,
+                scroll: 1,
+                visible: 10,
+                speed: 400,
+            });
+          }
+        });
+
+
+        $(function(){
+            var countLi = $('.carusel3>ul>li').size();
+
+            if (countLi >10) {
+
+            $(".carusel3").jCarouselLite({
+                btnNext: "",
+                btnPrev: "",
+                //circular: false,
+                vertical: true,
+                mouseWheel: true,
+                auto: 5000,
+                scroll: 1,
+                visible: 10,
+                speed: 400,
+            });
+          }
+        });
+
+        $(function(){
+            var countLi = $('.carusel4>ul>li').size();
+
+            if (countLi >10) {
+
+            $(".carusel4").jCarouselLite({
+                btnNext: "",
+                btnPrev: "",
+                //circular: false,
+                vertical: true,
+                mouseWheel: true,
+                auto: 5000,
+                scroll: 1,
+                visible: 10,
+                speed: 400,
+            });
+          }
+        });
+
+        $(function(){
+            var countLi = $('.carusel5>ul>li').size();
+
+            if (countLi >10) {
+
+            $(".carusel5").jCarouselLite({
+                btnNext: "",
+                btnPrev: "",
+                //circular: false,
+                vertical: true,
+                mouseWheel: true,
+                auto: 5000,
+                scroll: 1,
+                visible: 10,
+                speed: 400,
+            });
+          }
+        });
+
+        $(function(){
+            var countLi = $('.carusel6>ul>li').size();
+
+            if (countLi >10) {
+
+            $(".carusel6").jCarouselLite({
+                btnNext: "",
+                btnPrev: "",
+                //circular: false,
+                vertical: true,
+                mouseWheel: true,
+                auto: 5000,
+                scroll: 1,
+                visible: 10,
+                speed: 400,
+            });
+          }
+        });
+
+
       });
+
 
       $(function() {
 
@@ -183,6 +301,7 @@
 
       });
     });
+
   </script>
 
 
